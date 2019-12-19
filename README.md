@@ -33,9 +33,3 @@ Metadata reader - tool to read stored metadata of your messages or drivers. It m
 ## Logger ##
 
 PSR Logger need to log all actions you need.
-
-## Requirements ##
-
-    "php": ">=7.1",
-    "ramsey/uuid" : "~3.0.0",
-    "psr/log": "~1.0.0"

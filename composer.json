@@ -8,7 +8,7 @@
     {"name": "Aleksei I. Kuleshov", "email": "kuai6@ya.ru", "role": "master"}
   ],
   "require": {
-    "php": ">=7.1 || ~7.2 || ~7.3 || ~7.4",
+    "php": "~7.2 || ~7.3",
     "ramsey/uuid" : "^3.0",
     "psr/log": "^1.0"
   },

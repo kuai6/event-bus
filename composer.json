@@ -1,0 +1,33 @@
+{
+  "name": "kuai6/event-bus",
+  "description": "The Event Bus abstraction library",
+  "homepage": "https://github.com/kuai6/event-bus",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {"name": "Aleksei I. Kuleshov", "email": "kuai6@ya.ru", "role": "master"}
+  ],
+  "require": {
+    "php": ">=7.1 || ~7.2 || ~7.3 || ~7.4",
+    "ramsey/uuid" : "^3.0",
+    "psr/log": "^1.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^5.7",
+    "phpunit/phpcov": "^3.1",
+    "friendsofphp/php-cs-fixer": "^2.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Kuai6\\EventBus\\": "lib/"
+    },
+    "classmap": [
+      "lib/"
+    ]
+  },
+  "scripts": {
+    "cs-check": "php-cs-fixer -v fix --config=.php_cs  --dry-run --diff",
+    "cs-fix": "php-cs-fixer -v fix --config=.php_cs --diff",
+    "test": "vendor/bin/phpunit"
+  }
+}

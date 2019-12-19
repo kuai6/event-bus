@@ -1,0 +1,27 @@
+image: php:7.2
+
+before_script:
+  - apt-get update
+  - apt-get install -y wget git
+  - wget https://getcomposer.org/composer.phar
+  - php composer.phar --version
+  - php composer.phar install
+  - cp phpunit.xml.dist phpunit.xml
+
+after_script:
+
+stages:
+  - check
+  - test
+
+
+check-job:
+  stage: check
+  script:
+    - php vendor/bin/php-cs-fixer -v fix --config=.php_cs --dry-run
+
+
+test-job:
+  stage: test
+  script:
+    - php vendor/bin/phpunit

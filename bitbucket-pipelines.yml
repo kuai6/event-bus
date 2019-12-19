@@ -1,0 +1,19 @@
+# This is a sample build configuration for PHP.
+# Check our guides at https://confluence.atlassian.com/x/VYk8Lw for more examples.
+# Only use spaces to indent your .yml configuration.
+# -----
+# You can specify a custom docker image from Docker Hub as your build environment.
+image: php:7.2
+
+pipelines:
+  default:
+    - step:
+        script: # Modify the commands below to build your repository.
+          - apt-get update
+          - apt-get install -y wget git
+          - wget https://getcomposer.org/composer.phar
+          - php composer.phar --version
+          - php composer.phar install
+          - php vendor/bin/php-cs-fixer -v fix --config=$BITBUCKET_CLONE_DIR/.php_cs --dry-run
+          - cp phpunit.xml.dist phpunit.xml
+          - php vendor/bin/phpunit
